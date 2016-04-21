@@ -1,14 +1,14 @@
-# [populate]
+# Waterline
 
-## Populating a model association
+## [populate]
+
+Populating a model association
 
 ```javascript
 populate('dad')
 ```
 
-## Populating a collection association
-
-Second parameter is a [query].
+Populating a collection association. Second parameter is a [query].
 
 ```javascript
 populate('currentSwords', {
