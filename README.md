@@ -1,4 +1,4 @@
-# populate
+# [populate]
 
 ## Populating a model association
 
@@ -7,6 +7,8 @@ populate('dad')
 ```
 
 ## Populating a collection association
+
+Second parameter is a [query].
 
 ```javascript
 populate('currentSwords', {
@@ -17,3 +19,6 @@ populate('currentSwords', {
   sort: 'hipness DESC'
 })
 ```
+
+[populate]: http://sailsjs.org/documentation/reference/waterline-orm/queries/populate
+[query]: https://github.com/balderdashy/waterline-docs/blob/master/queries/query-language.md
