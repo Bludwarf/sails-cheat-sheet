@@ -1,3 +1,17 @@
+# Socket
+
+## Client side
+
+Get request
+
+```javascript
+io.socket.get('/url', {}, function(data, jwres) {
+  // jwres.statusCode
+  // jwres.headers
+  // data = jwres.body
+}
+```
+
 # Waterline (ORM)
 
 ## [populate]
