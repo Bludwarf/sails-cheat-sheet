@@ -19,7 +19,7 @@ io.socket.get('/url', {}, function(data, jwres) {
 ```javascript
 module.exports = {
   action: function(req, res) {
-    Model.find().execute(function(e, results) {
+    Model.find().exec(function(e, results) {
       if (e) {console.trace(e); return res.status(500).send(e);}
       
       res.view({
