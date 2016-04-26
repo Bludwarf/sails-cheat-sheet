@@ -14,6 +14,22 @@ io.socket.get('/url', {}, function(data, jwres) {
 
 # Waterline (ORM)
 
+## Basic controller
+
+```javascript
+module.exports = {
+  action: function(req, res) {
+    Model.find().execute(function(e, results) {
+      if (e) {console.trace(e); return res.status(500).send(e);}
+      
+      res.view({
+        results: results
+      });
+    });
+  }
+}
+```
+
 ## [populate]
 
 Populating a model association
