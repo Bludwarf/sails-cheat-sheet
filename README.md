@@ -30,6 +30,25 @@ module.exports = {
 }
 ```
 
+## Errors
+
+Duplicate entry
+
+```javascript
+{
+  code: 'E_VALIDATION',
+  invalidAttributes: {
+    file: [ [Object] ]
+  },
+  _e: [Error],
+  rawStack: '...',
+  reason: '1 attribute is invalid',
+  status: 400,
+  model: undefined,
+  details: 'Invalid attributes sent to undefined:\n • file\n   • A record with that `file` already exists (`D:\\Desktop\\13077068_10209078863959558_3052096108850368965_n.jpg`).\n'
+}
+```
+
 ## [populate]
 
 Populating a model association
