@@ -72,7 +72,7 @@ var data = _.reduce($(form).serializeArray(), function(hash, value) {
   return hash;
 });
 
-// Controller gets data through req.param('input1')
+// Controller gets data through req.body.input1 or req.param('input1')
 io.socket.post(url, data, function(data, jwres) {
   // jwres.statusCode
   // jwres.headers
