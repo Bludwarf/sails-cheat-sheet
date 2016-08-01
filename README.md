@@ -2,6 +2,8 @@
 
 ## create
 
+Replace the default create controller allowing to call the default view after an element creation :
+
 ```javascript
 create: function(req, res) {
     Model.create(req.params.all()).exec(function(err, created) {
