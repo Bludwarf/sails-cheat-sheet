@@ -1,3 +1,16 @@
+# Blueprint (REST)
+
+## create
+
+```javascript
+create: function(req, res) {
+    Model.create(req.params.all()).exec(function(err, created) {
+      if (err) return res.negotiate(err);
+      return res.redirect('/model/'+created.id);
+    });
+  }
+```
+
 # Socket
 
 ## Client side
