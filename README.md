@@ -11,7 +11,7 @@ Replace the default create controller allowing to call the default view after an
 ```javascript
 create: function(req, res) {
     Model.create(req.params.all()).exec(function(err, created) {
-      if (err) return res.negotiate(err);
+      if (err) return res.serverError(err);
       return res.redirect('/model/'+created.id);
     });
   }
@@ -36,11 +36,8 @@ action: function(req, res) {
       Model2.find().exec(cb);
     }
 
-  }, function(e, results) {
-    if (e) {
-      console.trace(e);
-      return res.send(500, e);
-    }
+  }, function(err, results) {
+    if (err) return res.serverError(err);
     return res.view({
       items1: results.items1,
       items2: results.items2
@@ -92,8 +89,8 @@ io.socket.post(url, data, function(data, jwres) {
 ```javascript
 module.exports = {
   action: function(req, res) {
-    Model.find().exec(function(e, results) {
-      if (e) {console.trace(e); return res.status(500).send(e);}
+    Model.find().exec(function(err, results) {
+      if (err) return res.serverError(err);
       
       res.view({
         results: results
