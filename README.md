@@ -29,7 +29,7 @@ action: function(req, res) {
     },
 
     items2: function(cb) {
-      Model2.findAll().exec(cb);
+      Model2.find().exec(cb);
     }
 
   }, function(e, results) {
