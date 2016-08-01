@@ -65,7 +65,15 @@ io.socket.get('/url', {}, function(data, jwres) {
 
 POST form request
 ```javascript
-io.socket.post(url, $(form).serializeArray(), function(data, jwres) {
+// Sails data format
+var data = _.reduce($(form).serializeArray(), function(hash, value) {
+  var key = value['name'];
+  hash[key] = value['value'];
+  return hash;
+});
+
+// Controller gets data through req.param('input1')
+io.socket.post(url, data, function(data, jwres) {
   // jwres.statusCode
   // jwres.headers
   // data = jwres.body
@@ -76,7 +84,6 @@ io.socket.post(url, $(form).serializeArray(), function(data, jwres) {
   $("#list").append(data);
 });
 ```
-
 
 # Waterline (ORM)
 
