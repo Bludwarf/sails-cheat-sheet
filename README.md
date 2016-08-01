@@ -49,7 +49,7 @@ action: function(req, res) {
 
 ## Client side
 
-Get request
+GET request
 
 ```javascript
 io.socket.get('/url', {}, function(data, jwres) {
@@ -58,6 +58,21 @@ io.socket.get('/url', {}, function(data, jwres) {
   // data = jwres.body
 });
 ```
+
+POST form request
+```javascript
+io.socket.post(url, $(form).serializeArray(), function(data, jwres) {
+  // jwres.statusCode
+  // jwres.headers
+  // data = jwres.body
+  if (jwres.statusCode != 200) {
+    console.error(jwres.error);
+    return alert(jwres.error.message);
+  }
+  $("#list").append(data);
+});
+```
+
 
 # Waterline (ORM)
 
