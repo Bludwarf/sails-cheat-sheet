@@ -4,7 +4,18 @@
 
 # Blueprint (REST)
 
-## create
+## Overridable methods
+
+  - find
+  - findOne
+  - [create](#blueprint_create)
+  - update
+  - destroy
+  - populate
+  - add
+  - remove
+
+## create <a name="blueprint_create"></a>
 
 Replace the default create controller allowing to call the default view after an element creation :
 
