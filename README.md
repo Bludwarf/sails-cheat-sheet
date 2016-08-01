@@ -56,7 +56,7 @@ io.socket.get('/url', {}, function(data, jwres) {
   // jwres.statusCode
   // jwres.headers
   // data = jwres.body
-}
+});
 ```
 
 # Waterline (ORM)
