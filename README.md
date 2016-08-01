@@ -13,6 +13,38 @@ create: function(req, res) {
   }
 ```
 
+# Controller
+
+## Multi model action
+
+```javascript
+action: function(req, res) {
+  async.auto({
+
+    items1: function(cb) {
+      Model1.findOne({id: req.params.id})
+        .populate('attribs1')
+        .populate('attribs2')
+        .exec(cb);
+    },
+
+    items2: function(cb) {
+      Model2.findAll().exec(cb);
+    }
+
+  }, function(e, results) {
+    if (e) {
+      console.trace(e);
+      return res.send(500, e);
+    }
+    return res.view({
+      items1: results.items1,
+      items2: results.items2
+    });
+  });
+}
+```
+
 # Socket
 
 ## Client side
