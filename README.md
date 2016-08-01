@@ -60,7 +60,7 @@ io.socket.get('/url', {}, function(data, jwres) {
 });
 ```
 
-POST form request
+POST form request...
 ```javascript
 // Sails data format
 var data = _.reduce($(form).serializeArray(), function(hash, value) {
@@ -68,6 +68,20 @@ var data = _.reduce($(form).serializeArray(), function(hash, value) {
   hash[key] = value['value'];
   return hash;
 });
+```
+
+... and return HTML content to update on server's side :
+```javascript
+Lien.create({
+    param1: req.body.param1,
+    param2: req.body.param2
+  }).exec(function(err, created) {
+  res.render('model/partial/view', {
+    layout: false, // render only partial
+    created: created
+  });
+});
+```
 
 // Controller gets data through req.body.input1 OR req.params.input1 OR req.param('input1')
 io.socket.post(url, data, function(data, jwres) {
