@@ -30,6 +30,9 @@ create: function(req, res) {
 
 # Controller
 
+  - [req]
+  - [res]
+
 ## Multi model action
 
 ```javascript
@@ -212,3 +215,5 @@ sort: {
 [populate]: http://sailsjs.org/documentation/reference/waterline-orm/queries/populate
 [query]: https://github.com/balderdashy/waterline-docs/blob/master/queries/query-language.md
 [sort]: http://sailsjs.org/documentation/reference/waterline-orm/queries/sort
+[req]: http://sailsjs.org/documentation/reference/request-req
+[res]: http://sailsjs.org/documentation/reference/response-res
