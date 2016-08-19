@@ -9,7 +9,7 @@
   - find
   - findOne
   - [create](#blueprint_create)
-  - update
+  - update (3 params + return Array data)
   - destroy
   - populate
   - add
