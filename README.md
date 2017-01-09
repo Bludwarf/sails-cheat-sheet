@@ -30,9 +30,34 @@ create: function(req, res) {
 
 ## update
 
+Uniquement depuis un **POST** client.
+Attention Model.update renvoie un **tableau** d'objets modifié (et pas seulement un seul objet).
+
+Exemple pour intercepter l'update dans le Controller correspondant :
+
 ```javascript
-update: function(modelName, id, params, cb) {
+update: function(req, res) {
+  // On supprime tous les paramètres vides qui devraient contenir des entiers pour éviter l'erreur "(E_VALIDATION) :: 3 attributes are invalid"
+  var bodyParams = req.body;
+  _.forEach(Model.attributes, function(attributeModel, name) {
+    var value = bodyParams[name];
+    if (typeof value != 'string') return true;
   
+    var attributeType = attributeModel.type && attributeModel.type.toLowerCase();
+    if (!attributeType) return true;
+    if (attributeType != 'integer' && attributeType != 'number') return true;
+  
+    if (!value) {
+      delete bodyParams[name];
+      sails.log("Paramètre numérique "+name+" supprimé de la requête client car vide");
+    }
+  });
+
+  Model.update({id: req.params.id}, bodyParams).exec(function(err, updatedArray) {
+      if (err) return res.serverError(err);
+      var updated = updatedArray[0];
+      return res.redirect(req.body.redirect_uri ? req.body.redirect_uri : '/model/'+updated.id);
+    });
 }
 ```
 
