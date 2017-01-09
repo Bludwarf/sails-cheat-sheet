@@ -47,7 +47,7 @@ update: function(req, res) {
     if (!attributeType) return true;
     if (attributeType != 'integer' && attributeType != 'number') return true;
   
-    if (!value) {
+    if (value === '') {
       delete bodyParams[name];
       sails.log("Paramètre numérique "+name+" supprimé de la requête client car vide");
     }
