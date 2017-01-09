@@ -4,7 +4,7 @@
 
 # Blueprint (REST)
 
-## Overridable methods
+## [Overridable methods]
 
   - find
   - findOne
@@ -27,6 +27,15 @@ create: function(req, res) {
     });
   }
 ```
+
+## update
+
+```javascript
+update: function(modelName, id, params, cb) {
+  
+}
+```
+
 
 # Controller
 
@@ -215,3 +224,4 @@ sort: {
 [populate]: http://sailsjs.org/documentation/reference/waterline-orm/queries/populate
 [query]: https://github.com/balderdashy/waterline-docs/blob/master/queries/query-language.md
 [sort]: http://sailsjs.org/documentation/reference/waterline-orm/queries/sort
+[Overridable methods]: http://sailsjs.com/documentation/reference/blueprint-api#?blueprint-actions
