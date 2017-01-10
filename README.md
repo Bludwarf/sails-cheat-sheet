@@ -82,7 +82,7 @@ action: function(req, res) {
 
 # Policies
 
-## emptyBodyParams
+## emptyBodyParams [gist][gist1]
 
 Empêche le client d'envoyer des paramètres vides ("") dans le body.
 
@@ -257,3 +257,4 @@ sort: {
 [query]: https://github.com/balderdashy/waterline-docs/blob/master/queries/query-language.md
 [sort]: http://sailsjs.org/documentation/reference/waterline-orm/queries/sort
 [OVMethods]: http://sailsjs.com/documentation/reference/blueprint-api#?blueprint-actions
+[gist1]: https://gist.github.com/Bludwarf/821d2614ebbb5594fa1109007509d570
