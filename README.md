@@ -4,7 +4,7 @@
 
 # Blueprint (REST)
 
-## [Overridable methods]
+## [Overridable methods][OVMethods]
 
   - find
   - findOne
@@ -129,7 +129,6 @@ Lien.create({
     created: created
   });
 });
-```
 
 // Controller gets data through req.body.input1 OR req.params.input1 OR req.param('input1')
 io.socket.post(url, data, function(data, jwres) {
@@ -145,6 +144,8 @@ io.socket.post(url, data, function(data, jwres) {
 ```
 
 # Waterline (ORM)
+
+[Contrôles][https://github.com/balderdashy/waterline-docs/blob/master/models/validations.md].
 
 ## Basic controller
 
@@ -249,4 +250,4 @@ sort: {
 [populate]: http://sailsjs.org/documentation/reference/waterline-orm/queries/populate
 [query]: https://github.com/balderdashy/waterline-docs/blob/master/queries/query-language.md
 [sort]: http://sailsjs.org/documentation/reference/waterline-orm/queries/sort
-[Overridable methods]: http://sailsjs.com/documentation/reference/blueprint-api#?blueprint-actions
+[OVMethods]: http://sailsjs.com/documentation/reference/blueprint-api#?blueprint-actions
