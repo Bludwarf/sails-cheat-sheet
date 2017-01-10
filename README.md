@@ -37,21 +37,7 @@ Exemple pour intercepter l'update dans le Controller correspondant :
 
 ```javascript
 update: function(req, res) {
-  // On supprime tous les paramètres vides qui devraient contenir des entiers pour éviter l'erreur "(E_VALIDATION) :: 3 attributes are invalid"
-  var bodyParams = req.body;
-  _.forEach(Model.attributes, function(attributeModel, name) {
-    var value = bodyParams[name];
-    if (typeof value != 'string') return true;
-  
-    var attributeType = attributeModel.type && attributeModel.type.toLowerCase();
-    if (!attributeType) return true;
-    if (attributeType != 'integer' && attributeType != 'number') return true;
-  
-    if (value === '') {
-      bodyParams[name] = null;
-      sails.log("Paramètre numérique "+name+" supprimé de la requête client car vide");
-    }
-  });
+  // On supprime tous les paramètres vides qui devraient contenir des entiers pour éviter l'erreur "(E_VALIDATION) :: 3 attributes are invalid" grace à la Policy emptyBodyParams
 
   Model.update({id: req.params.id}, bodyParams).exec(function(err, updatedArray) {
       if (err) return res.serverError(err);
@@ -92,6 +78,26 @@ action: function(req, res) {
     });
   });
 }
+```
+
+# Policies
+
+## emptyBodyParams
+
+Empêche le client d'envoyer des paramètres vides ("") dans le body.
+
+```javascript
+module.exports = function(req, res, next) {
+
+  _.forEach(req.body, function(bodyParamValue, bodyParamName) {
+    if (bodyParamValue === '') {
+      req.body[bodyParamName] = null;
+      sails.log("req.body."+bodyParamName+" = \"\" -> null");
+    }
+  });
+
+  next();
+};
 ```
 
 # Socket
