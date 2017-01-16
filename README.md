@@ -7,7 +7,7 @@
 ## [Overridable methods][OVMethods]
 
   - find
-  - findOne
+  - findOne (**attention** syntaxe complètement différents pour les findOneBy...)
   - [create](#blueprint_create)
   - update (3 params + return Array data)
   - destroy
@@ -152,6 +152,14 @@ io.socket.post(url, data, function(data, jwres) {
 # Waterline (ORM)
 
 [Contrôles][https://github.com/balderdashy/waterline-docs/blob/master/models/validations.md].
+
+## findOneBy...
+
+```javascript
+Model.findOneById(someValue,[options], function(err, item) {
+  
+});
+```
 
 ## Basic controller
 
