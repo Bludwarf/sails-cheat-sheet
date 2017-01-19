@@ -6,7 +6,8 @@
 
 ## [Overridable methods][OVMethods]
 
-  - find
+  - index : GET all items
+  - find : GET one item
   - findOne (**attention** syntaxe complètement différents pour les findOneBy...)
   - [create](#blueprint_create)
   - update (3 params + return Array data)
