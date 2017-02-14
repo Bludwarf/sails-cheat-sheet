@@ -154,6 +154,18 @@ io.socket.post(url, data, function(data, jwres) {
 
 [Contrôles][https://github.com/balderdashy/waterline-docs/blob/master/models/validations.md].
 
+## find
+
+Avec une relation One-to-One :
+
+```javascript
+Model.find({
+    relatedObject: relatedObject.id
+}).exec(function(err, modelElements) {
+    
+});
+```
+
 ## findOneBy...
 
 ```javascript
