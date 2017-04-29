@@ -150,6 +150,40 @@ io.socket.post(url, data, function(data, jwres) {
 });
 ```
 
+# View
+
+## Sails provided locals
+
+  - DTRACE_NET_SERVER_CONNECTION
+  - DTRACE_NET_STREAM_END
+  - DTRACE_HTTP_SERVER_REQUEST
+  - DTRACE_HTTP_SERVER_RESPONSE
+  - DTRACE_HTTP_CLIENT_REQUEST
+  - DTRACE_HTTP_CLIENT_RESPONSE
+  - global
+  - process
+  - Buffer
+  - clearImmediate
+  - clearInterval
+  - clearTimeout
+  - setImmediate
+  - setInterval
+  - setTimeout
+  - console
+  - _
+  - async
+  - sails
+  - $V
+  - $M
+  - $L
+  - $P
+  - passport
+  - protocols
+  - ''Services''
+  - FILE_PARSER_LOGGER_ENABLED
+  - ''Models''
+  - ''MappingTables''
+
 # Waterline (ORM)
 
 [Contrôles][https://github.com/balderdashy/waterline-docs/blob/master/models/validations.md].
