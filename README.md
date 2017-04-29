@@ -224,6 +224,16 @@ module.exports = {
 }
 ```
 
+## Using Promises
+
+```javascript
+Model.find().then(function(model) {
+  // ...
+}).fail(function(err) {
+  return res.negotiate(err);
+});
+```
+
 ## Errors
 
 Duplicate entry
