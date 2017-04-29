@@ -154,6 +154,8 @@ io.socket.post(url, data, function(data, jwres) {
 
 ## Sails provided locals
 
+  - req
+
   - DTRACE_NET_SERVER_CONNECTION
   - DTRACE_NET_STREAM_END
   - DTRACE_HTTP_SERVER_REQUEST
